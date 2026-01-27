@@ -84,16 +84,13 @@ A single, tested source of truth for all RabbitMQ infrastructure behavior, ensur
 2. **A multi-broker abstraction**
    - Why not: Only supports RabbitMQ via amqplib. No Kafka, Redis Streams, or generic broker interface. The platform is committed to RabbitMQ — abstracting over brokers adds complexity with zero benefit.
 
-3. **A public npm package**
-   - Why not: Consumed as a `file:` dependency by sibling projects. No npm publish, no semver guarantees to external users, no public API stability promises.
-
-4. **A home for business logic**
+3. **A home for business logic**
    - Why not: Infrastructure only. No torrent logic, no notification formatting, no domain-specific code. If it's specific to one service, it belongs in that service.
 
-5. **An HTTP layer**
+4. **An HTTP layer**
    - Why not: No Express, Hono, or Fastify. This is a RabbitMQ infrastructure library. Services that need HTTP endpoints build that themselves.
 
-6. **A database layer**
+5. **A database layer**
    - Why not: No ORM, no database client, no migrations. If a service needs persistence, it handles that independently.
 
 **Feature requests to auto-reject:**
@@ -102,7 +99,6 @@ A single, tested source of truth for all RabbitMQ infrastructure behavior, ensur
 - Kafka, Redis Streams, or other broker support
 - CLI tools or project scaffolding
 - Domain-specific business logic
-- npm publish or public package distribution
 
 ---
 
@@ -141,3 +137,4 @@ Use this checklist when evaluating any proposed addition to consumer-shared:
 | Date | Change | Reason |
 |------|--------|--------|
 | 2026-01-27 | Created canvas | Initial strategy definition for shared infrastructure library |
+| 2026-01-27 | Published to npm | Transitioned from `file:` dependency to `@xmer/consumer-shared` on npm. Removed "public npm package" anti-goal since npm distribution simplifies CI and onboarding for new consumers. |
