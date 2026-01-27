@@ -1,11 +1,20 @@
 {
-  "name": "consumer-shared",
+  "name": "@xmer/consumer-shared",
   "version": "1.0.0",
   "description": "Shared infrastructure library for consumer microservices",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmer/consumer-shared.git"
+  },
+  "license": "MIT",
+  "keywords": ["rabbitmq", "consumer", "microservices", "amqplib", "dlq"],
   "scripts": {
     "build": "tsc",
     "lint": "biome check src/",

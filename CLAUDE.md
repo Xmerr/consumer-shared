@@ -139,14 +139,10 @@ The delayed exchange (`{exchange}.delay`) is asserted as type `x-delayed-message
 
 ## How Services Consume This Package
 
-Services depend on `consumer-shared` in their `package.json`:
+Services install the package from npm:
 
-```json
-{
-  "dependencies": {
-    "consumer-shared": "file:../consumer-shared"
-  }
-}
+```bash
+bun add @xmer/consumer-shared
 ```
 
 Usage pattern in a consumer service:
@@ -160,7 +156,7 @@ import {
   createLogger,
   RetryableError,
   NonRetryableError,
-} from "consumer-shared";
+} from "@xmer/consumer-shared";
 ```
 
 Services extend `BaseConsumer` and implement `processMessage()` for their business logic. Infrastructure concerns (connection, retries, logging, DLQ) are handled by the shared components.

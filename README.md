@@ -4,14 +4,8 @@ Shared infrastructure library for consumer microservices. Provides RabbitMQ conn
 
 ## Install
 
-Consumer services depend on this package via local file reference:
-
-```json
-{
-  "dependencies": {
-    "consumer-shared": "file:../consumer-shared"
-  }
-}
+```bash
+bun add @xmer/consumer-shared
 ```
 
 ## Usage
@@ -25,7 +19,7 @@ import {
   createLogger,
   RetryableError,
   NonRetryableError,
-} from "consumer-shared";
+} from "@xmer/consumer-shared";
 ```
 
 ### Bootstrap a consumer service
@@ -66,7 +60,7 @@ const publisher = new BasePublisher({
 ### Extend BaseConsumer
 
 ```typescript
-import { BaseConsumer, NonRetryableError } from "consumer-shared";
+import { BaseConsumer, NonRetryableError } from "@xmer/consumer-shared";
 import type { ConsumeMessage } from "amqplib";
 
 class OrderCreatedConsumer extends BaseConsumer {
