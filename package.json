@@ -1,6 +1,6 @@
 {
   "name": "@xmer/consumer-shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared infrastructure library for consumer microservices",
   "type": "module",
   "main": "dist/index.js",
