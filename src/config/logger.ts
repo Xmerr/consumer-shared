@@ -31,6 +31,11 @@ function buildTransportTargets(options: LoggerOptions): TransportTarget[] {
 			target: "pino-pretty",
 			options: { colorize: true },
 		});
+	} else {
+		targets.push({
+			target: "pino/file",
+			options: { destination: 1 },
+		});
 	}
 
 	return targets;
@@ -80,9 +85,6 @@ export function createLogger(options: LoggerOptions): ILogger {
 	const pinoLogger = pino(
 		{
 			level: options.level ?? "info",
-			formatters: {
-				level: (label: string) => ({ level: label }),
-			},
 		},
 		transport,
 	);
